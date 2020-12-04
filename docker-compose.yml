@@ -1,0 +1,14 @@
+version: '2'
+services:
+    web:
+        container_name: victor-getir-case-study
+        restart: always
+        env_file: .env
+        environment:
+            - PORT=$PORT
+            - LOGS_DIR=$LOGS_DIR
+            - DATABASE_URL=$DATABASE_URL
+        build:
+            context: .
+        ports:
+            - '80:5000'

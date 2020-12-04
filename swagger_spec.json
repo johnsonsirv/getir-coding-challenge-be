@@ -1,0 +1,115 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Coding Challenge - Getir Case Study",
+        "description": "A simple REST API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://victor-getir-api-challenge.herokuapp.com/api/v1"
+        }
+    ],
+    "paths": {
+        "/records": {
+            "post": {
+                "description": "Get records from database filtered by date created (createdAt) and aggregated sum",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": ["maxCount", "endDate", "minCount", "startDate"],
+                                "type": "object",
+                                "properties": {
+                                    "startDate": {
+                                        "type": "string",
+                                        "example": "2015-01-12"
+                                    },
+                                    "endDate": {
+                                        "type": "string",
+                                        "example": "2018-01-12"
+                                    },
+                                    "minCount": {
+                                        "type": "integer",
+                                        "example": 2700
+                                    },
+                                    "maxCount": {
+                                        "type": "integer",
+                                        "example": 2800
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Records returned successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number",
+                                            "example": 0
+                                        },
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "records": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "key": {
+                                                        "type": "string",
+                                                        "example": "TAKwGc6Jr4i8Z487"
+                                                    },
+                                                    "createdAt": {
+                                                        "type": "string",
+                                                        "example": "2017-01-28T01:22:14.398Z"
+                                                    },
+                                                    "totalCount": {
+                                                        "type": "integer",
+                                                        "example": 2800
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Failure"
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid Date Format"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
