@@ -39,7 +39,7 @@ $ curl --header "Content-Type: application/json" -d "{\"startDate\":\"2016-01-26
 }
 ```
 
-![](https://github.com/johnsonsirv/getir-coding-challenge-be/blob/master/docs/getir-api-docs-postman.png)
+![](https://github.com/johnsonsirv/getir-coding-challenge-be/blob/main/docs/getir-api-docs-postman.png)
 
 ### Live URL:
 
