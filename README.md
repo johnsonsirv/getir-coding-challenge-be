@@ -39,7 +39,7 @@ $ curl --header "Content-Type: application/json" -d "{\"startDate\":\"2016-01-26
 }
 ```
 
-![](https://github.com/johnsonsirv/getir-coding-challenge-be/blob/wizard/docs/getir-api-docs-postman.png)
+![](https://github.com/johnsonsirv/getir-coding-challenge-be/blob/master/docs/getir-api-docs-postman.png)
 
 ### Live URL:
 
@@ -88,12 +88,19 @@ Endpoint: http://localhost:5000/api/v1/records
 
 ### Install with Docker
 
-Ensure docker is installed
+Ensure docker/docker-compose is setup
 
 ```
 $ docker -v
 
+$ docker-compose --version
+
 $ docker-compose up
+```
+This will launch the server on http://localhost:80
+```
+URL: http://localhost
+Endpoint: http://localhost/api/v1/records
 ```
 
 ### Heroku
